@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}EcomSearch{% endblock %}
+{% block content %}
+<section>
+    <div class="section">
+        <div class="section1" style="{% if data.all_product != '' %} display:none {% endif %}">
+                <div class="img-slider">
+                    <img src="https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt="" class="img" />
+                    <img src="https://images.pexels.com/photos/3962294/pexels-photo-3962294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt="" class="img" />
+                    <img src="https://images.pexels.com/photos/2292953/pexels-photo-2292953.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    alt="" class="img" />
+                    <img src="https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt="" class="img" />
+                    <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="" class="img" />
+                </div>
+            </div>
+
+            <div class="section2">
+                <div class="container">
+                    {% for product in data.all_product %}
+                    
+                    <div class="items">
+                        <div class="name">{{product.product_site}}</div>
+                        <div class="img img1">
+                            <a href="{{product.product_links}}" target="_blank">
+                                <div class="img img2"
+                                style="background: url('{{product.product_imgs}}');background-position: center;background-size: contain;background-repeat: no-repeat;z-index: 0.1;">
+                            </div>
+                        </a>
+                        </div>
+                        <div class="info">{{product.product_descriptions}}</div>
+                        <div class="price product-price">{{product.product_prices}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
